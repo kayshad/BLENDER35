@@ -27,6 +27,7 @@ def update_foncc(self, context):
             for obj in bpy.data.objects:      
                 if 'fonction' in obj.name:
                     bpy.data.objects.remove(obj)
+                    
             for coll in bpy.data.collections:      
                 if 'Fonction' in coll.name:
                     bpy.data.collections.remove(coll) 
@@ -106,6 +107,8 @@ class MesProps(bpy.types.PropertyGroup):
     #extmin: bpy.props.IntProperty(name ="MiN", default=-5 , update=update_fonc)
 
 
+
+
 class OBJECT_OT_simple_operator(bpy.types.Operator):
     """Tooltip"""
     bl_label = "STOCKAGEFONCTION"
@@ -114,6 +117,9 @@ class OBJECT_OT_simple_operator(bpy.types.Operator):
         for obj in bpy.data.objects:      
             if 'fonction' in obj.name:
                 obj.name = 'stockf'
+        for curve in bpy.data.curves:      
+            if 'fonction' in curve.name:
+                curve.name = 'stockf'
         for coll in bpy.data.collections:      
             if 'Fonction' in coll.name:
                 coll.name = 'Stockf'
