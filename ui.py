@@ -16,6 +16,7 @@ class OBJECT_OT_kays_operator_surface(bpy.types.Operator):
         x, y, z, t = sym.symbols('x y z t')
         k, m, n = sym.symbols('k m n', integer=True)
         f, g, h = sym.symbols('f g h', cls= sym.Function)
+        
         def surf(expr, name, div, t):
             verts = []
             faces  = []
@@ -28,6 +29,7 @@ class OBJECT_OT_kays_operator_surface(bpy.types.Operator):
                     bpy.data.collections.remove(coll) 
             coll = bpy.data.collections.new('Surface')
             bpy.context.scene.collection.children.link(coll)
+            bpy.ops.outliner.orphans_purge(do_local_ids=True, do_linked_ids=True, do_recursive=True)
             expr = expr
             name = name
             lin = numpy.linspace(-1*t, t, num=div)
