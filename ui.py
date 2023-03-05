@@ -51,7 +51,7 @@ class OBJECT_OT_kays_operator(bpy.types.Operator):
         return {'FINISHED'}
 
 class OBJECT_PT_kays_panel(bpy.types.Panel):
-    bl_idname = "object_PT_kays_panel"
+    bl_idname = "OBJECT_PT_kays_panel"
     bl_label = "Kays Example"
     bl_space_type = 'VIEW_3D'
     bl_region_type = 'UI'
@@ -65,7 +65,7 @@ class OBJECT_PT_kays_panel(bpy.types.Panel):
         row.prop(donne, "my_string")
         
         
-        props = self.layout.operator('object.kays_operator')
+        # props = self.layout.operator('object.kays_operator')
 
 def update_func(self, context):
     bpy.ops.object.kays_operator()
